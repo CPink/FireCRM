@@ -19,7 +19,7 @@
     <tr *ngFor="let client of clients">
       <td>{{ client.firstName }} {{ client.lastName }}</td>
       <td>{{ client.email }}</td>
-      <td> {{ client.balance | currency: "USD":"symbol" }}</td>
+      <td> {{ client.balance | currency:"USD":"symbol" }}</td>
       <td><a routerLink="client/{{ client.id }}" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
     </tr>
   </tbody>
