@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { environment } from '../environments/environment.prod';
 import { AngularFireModule } from 'angularfire2';
@@ -22,6 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ClientService } from './services/client.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +45,9 @@ import { ClientService } from './services/client.service';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'firecrm'),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule,
+    FlashMessagesModule
   ],
   providers: [ClientService],
   bootstrap: [AppComponent]

@@ -36,4 +36,9 @@ client: Observable<Client>;
     return this.clients;
   }
 
+  //add new client from from submition
+  newClient(client: Client){
+    this.clientsCollection.add(client);
+  }
+
 }
