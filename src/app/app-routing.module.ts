@@ -18,7 +18,7 @@ import { RegisterGaurd } from './gaurds/register.gaurd';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent, canActivate:[AuthGaurd]},
-  {path: 'login', component: LoginComponent, canActivate:[RegisterGaurd]},
+  {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent, canActivate:[RegisterGaurd]},
   {path: 'client/add', component: AddClientComponent, canActivate:[AuthGaurd]},
   {path: 'client/edit/:id', component: EditClientComponent, canActivate:[AuthGaurd]},
