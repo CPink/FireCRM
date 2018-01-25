@@ -4,6 +4,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Client } from '../../models/Client';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { SettingsService } from '../../services/settings.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +20,7 @@ showRegister: boolean;
 
   constructor(private authService: AuthService,
               private router: Router,
+              private settingsService: SettingsService,
               private flashMessage: FlashMessagesService) { }
 
   ngOnInit() {
@@ -29,6 +32,8 @@ showRegister: boolean;
         this.isLoggedIn = false;
       }
     });
+
+    this.showRegister = this.settingsService.getSettings().allowRegistration;
   }
 
 //log user out and route back to login

@@ -3,6 +3,8 @@ import { Client } from '../../models/Client';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { ClientService } from '../../services/client.service';
 import { Router } from '@angular/router';
+import { SettingsService } from '../../services/settings.service';
+
 
 
 
@@ -30,9 +32,11 @@ export class AddClientComponent implements OnInit {
 //added FlashMessagesService as a dependency to constructor (dependency injection)
   constructor(private flashMessage: FlashMessagesService,
               private clientService: ClientService,
+              private settingsService: SettingsService,
               private router: Router) { }
 
   ngOnInit() {
+    this.disableBalanceOnAdd = this.settingsService.getSettings().disableBalanceOnAdd;
   }
 
   /*method to submit client-add form takes an object with 2 properties 
