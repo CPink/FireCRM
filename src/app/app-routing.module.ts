@@ -9,17 +9,19 @@ import { EditClientComponent } from './components/edit-client/edit-client.compon
 import { SettingsComponent } from './components/settings/settings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ClientDetailsComponent } from './components/client-details/client-details.component';
+import { AuthGaurd } from './gaurds/auth.gaurd';
+
 
 
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
+  {path: '', component: DashboardComponent, canActivate:[AuthGaurd]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'client/add', component: AddClientComponent},
-  {path: 'client/edit/:id', component: EditClientComponent},
-  {path: 'client/:id', component: ClientDetailsComponent},
-  {path: 'settings', component: SettingsComponent},
+  {path: 'client/add', component: AddClientComponent, canActivate:[AuthGaurd]},
+  {path: 'client/edit/:id', component: EditClientComponent, canActivate:[AuthGaurd]},
+  {path: 'client/:id', component: ClientDetailsComponent, canActivate:[AuthGaurd]},
+  {path: 'settings', component: SettingsComponent, canActivate:[AuthGaurd]},
   {path: '**', component: NotFoundComponent}
 ];
 
@@ -28,6 +30,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes)
   ],
-  declarations: []
+  providers: [AuthGaurd]
 })
 export class AppRoutingModule { }

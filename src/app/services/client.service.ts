@@ -63,4 +63,10 @@ client: Observable<Client>;
     this.clientDoc.update(client);
   }
 
+  //remove client from firestore
+  deleteClient(client: Client){
+    this.clientDoc = this.afs.doc(`clients/${client.id}`);
+    this.clientDoc.delete();
+  }
+
 }

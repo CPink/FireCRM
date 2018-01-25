@@ -22,6 +22,8 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ClientService } from './services/client.service';
+import { AuthService } from './services/auth.service';
+
 
 
 
@@ -39,6 +41,7 @@ import { ClientService } from './services/client.service';
     RegisterComponent,
     SettingsComponent,
     NotFoundComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ import { ClientService } from './services/client.service';
     FormsModule,
     FlashMessagesModule
   ],
-  providers: [ClientService],
+  providers: [ClientService,  AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
